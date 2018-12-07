@@ -7,6 +7,6 @@ from .models import Publicacion
 # Register your models here.
 
 
-# Para hacer nuestro modelo visible en la página del administrador, tenemos que registrar el modelo con 
+# Para hacer nuestro modelo visible en la página del administrador, tenemos que registrar el modelo con
 admin.site.register(Publicacion)
 
