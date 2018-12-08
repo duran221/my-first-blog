@@ -32,9 +32,10 @@ class Publicacion(models.Model):
     
     """
     def publicar(self):
-
+        #Asignando la fecha actual del ordenador:
         self.fecha_publicacion= timezone.now()
 
+        #Guarda en la base de datos nuestros datos.
         self.save()
 
 

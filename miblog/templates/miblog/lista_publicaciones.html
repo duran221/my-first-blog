@@ -10,22 +10,19 @@
         <div>
                 <h1><a href="/">Django Girls Blog</a></h1>
             </div>
-    
+            {% for publicacion in publicaciones %}
             <div>
-                <p>published: 06.12.2018, 07:58</p>
+                <p>Publicado:
+                {{publicacion.fecha_publicacion}}
+                </p>
 
-                <h2><a href="">My first post</a></h2>
+                <h1><a href="">{{publicacion.titulo}}</a> </h1>
 
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <!-- |linebreaksbr Convierte saltos de linea en parrados-->
+                <p>{{publicacion.texto|linebreaksbr}}</p>
             </div>
-    
-            <div>
-                <p>published: 06.12.2018, 07:59</p>
+            {% endfor %}
 
-                <h2><a href="">My second post</a></h2>
 
-                <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-            </div>
-    
 </body>
 </html>
