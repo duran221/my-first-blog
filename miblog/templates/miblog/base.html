@@ -28,7 +28,14 @@
     </head>
     <body>
         <div class="encabezado">
-                <h1><a href="/">Mi primer titulo</a></h1>
+            <!--Enlace a la pagina nueva publicacion, la clase del span es proporcionada por bootstrap
+            y nos mostrara un signo de suma-->
+            {% if user.is_authenticated %}
+                <a href="{% url 'nueva_publicacion' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            
+            {% endif %}
+            <h1><a href="/">Mi primer blog</a></h1>
+
         </div>
           
         <div class="container">

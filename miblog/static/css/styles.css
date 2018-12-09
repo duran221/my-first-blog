@@ -51,7 +51,7 @@ h1, h2, h3, h4{
     float: right;
 }
 
-.post-form textarea, .post-form input {
+.formulario-publicacion textarea, .formulario-publicacion input {
     width: 100%;
 }
 
@@ -61,4 +61,3 @@ h1, h2, h3, h4{
     font-size: 26pt;
     margin-right: 20px;
 }
-
