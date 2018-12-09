@@ -1,0 +1,32 @@
+<!--Extendiendo o eredando del archivo base.html-->
+{% extends 'miblog/base.html'%}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <div class="publicacion">
+            <!--Revisando si la fecha de publicacion no esta vacia-->
+            {% if publicacion.fecha_publicacion %}
+                <div class="date">
+                    {{ publicacion.fecha_publicacion }}
+
+                </div>
+            {% endif %}
+            
+            <h1>{{ publicacion.titulo }}</h1>
+            <!--linebreaksbr:Reemplazando saltos de linea por un parrafo completo-->
+            <p>{{ publicacion.texto|linebreaksbr }}</p>
+
+        </div>
+
+    {% endblock %}
+    
+</body>
+</html>

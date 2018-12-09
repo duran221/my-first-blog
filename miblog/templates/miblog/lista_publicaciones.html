@@ -1,27 +1,59 @@
+<!--Importante, Esta linea debe ir al comienzo de esta pagina-->
+{% extends 'miblog/base.html' %}
+<!--Encargado de importar el directorio static de Django
+Aquí solo estamos cargando archivos estáticos-->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     <title>Mi primer Plantilla Django </title>
+
+
 </head>
 <body>
-        <div>
-                <h1><a href="/">Django Girls Blog</a></h1>
-            </div>
-            {% for publicacion in publicaciones %}
-            <div>
+    <div class="encabezado">
+            <h1><a href="/">Mi primer titulo</a></h1>
+    </div>
+
+    <!--Extendiendo del archivo base.html--> 
+    <!--En este bloque se reemplazara el contenido en el archivo 'base.html'-->
+    {% block content %}
+
+        {% for publicacion in publicaciones %}
+        <div class="publicacion">
+            <div class="date">
                 <p>Publicado:
-                {{publicacion.fecha_publicacion}}
+                    {{publicacion.fecha_publicacion}}
                 </p>
-
-                <h1><a href="">{{publicacion.titulo}}</a> </h1>
-
-                <!-- |linebreaksbr Convierte saltos de linea en parrados-->
-                <p>{{publicacion.texto|linebreaksbr}}</p>
             </div>
-            {% endfor %}
+
+            <h1><a href="{% url 'detalles_publicacion' pk=publicacion.pk %}">{{publicacion.titulo}}</a> </h1>
+
+            <!-- |linebreaksbr Convierte saltos de linea en parrados-->
+            <p>{{publicacion.texto|linebreaksbr}}</p>
+
+        </div>
+        {% endfor %}
+    
+    {% endblock %}
 
 
 </body>
